@@ -1,0 +1,21 @@
+[general]
+name=OpenLocationCode Tools
+description=Find Open Location Code / Plus Code addresses
+about=
+category=Plugins
+qgisMinimumVersion=3.0
+version=3.0
+
+author=Jakob Wilhelm
+email=codebardian@gmail.com
+
+icon=icons/desktop.svg
+tags=openlocationcode,pluscode
+
+homepage=https://github.com/codebardian/qgis-openlocationcode
+tracker=https://github.com/boundlessgeo/qgis-openlocationcode/issues
+repository=https://github.com/codebardian/qgis-openlocationcode
+
+experimental=False
+deprecated=False
+server=False
