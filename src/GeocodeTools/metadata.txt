@@ -1,6 +1,6 @@
 [general]
-name=OpenLocationCode Tools
-description=Find Open Location Code / Plus Code addresses
+name=Geocode Tools
+description=Find addresses from a variety of geocodes and generate codes from map positions
 about=
 category=Plugins
 qgisMinimumVersion=3.0
@@ -10,7 +10,7 @@ author=Jakob Wilhelm
 email=codebardian@gmail.com
 
 icon=icons/desktop.svg
-tags=openlocationcode,pluscode
+tags=openlocationcode,pluscode,osm short link
 
 homepage=https://github.com/codebardian/qgis-openlocationcode
 tracker=https://github.com/boundlessgeo/qgis-openlocationcode/issues

@@ -19,12 +19,28 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Zoom to OpenLocationCode address</string>
+        <string>Zoom to Geocode Address</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton">
+      <widget class="QToolButton" name="bZoom">
+       <property name="toolTip">
+        <string>Zoom To Address</string>
+       </property>
+       <property name="statusTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="bClearMarker">
+       <property name="toolTip">
+        <string>Clear Marker</string>
+       </property>
        <property name="text">
         <string>...</string>
        </property>
