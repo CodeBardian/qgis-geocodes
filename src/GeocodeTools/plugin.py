@@ -37,7 +37,7 @@ class GeocodeToolsPlugin:
         tool_icon = QIcon(':/images/themes/default/mActionIdentify.svg')
         for code_type in CODE_TYPES.keys():
             tool_action = QAction(tool_icon, f"Capture {CODE_TYPES[code_type]}", self.iface.mainWindow())
-            tool_action.triggered.connect(lambda c=code_type: self.setTool(c))
+            tool_action.triggered.connect(lambda checked, c=code_type: self.setTool(c))
             self.iface.addPluginToMenu(self.menu, tool_action)
             self.actions.append(tool_action)
 
