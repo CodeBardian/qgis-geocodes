@@ -31,7 +31,7 @@ def _decode(short_link):
     >>> _decode('https://osm.org/go/0MZL7BaZ')
     ()
     """
-    code = short_link.partition('https://osm.org/go/')[-1]
+    code = short_link.split('https://osm.org/go/')[1]
     x, y, z, z_offset = 0, 0, 0, 0
 
     for char in code:

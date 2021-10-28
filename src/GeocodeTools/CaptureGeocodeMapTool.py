@@ -7,6 +7,7 @@ from qgis.utils import iface
 
 from GeocodeTools.openlocationcode import encode
 from GeocodeTools.osm_shortlink import short_osm
+from GeocodeTools.utils import GeocodeType, toGeocode
 
 
 class CaptureGeocodeMapTool(QgsMapToolEmitPoint):
@@ -24,23 +25,16 @@ class CaptureGeocodeMapTool(QgsMapToolEmitPoint):
 
     def canvasReleaseEvent(self, event):
         pt = self.toMapCoordinates(event.pos())
-        code = self.toGeocode(pt)
+        code = self.transformToGeocode(pt)
 
         iface.messageBar().pushMessage("Geocode Tools", f"The Geocode: {code} has been copied to the clipboard",
                                        level=Qgis.Info, duration=6)
         clipboard = QApplication.clipboard()
         clipboard.setText(code)
 
-    def toGeocode(self, pt):
+    def transformToGeocode(self, pt):
         canvas_crs = self.canvas.mapSettings().destinationCrs()
         transform = QgsCoordinateTransform(canvas_crs, self.epsg4326, QgsProject.instance())
         pt4326 = transform.transform(pt.x(), pt.y())
 
-        if self.geocode_type == 'olc':
-            code = encode(pt4326.y(), pt4326.x())
-        elif self.geocode_type == 'osm':
-            code = short_osm(pt4326.y(), pt4326.x())
-        else:
-            raise Exception('unknown geocode type')
-
-        return code
+        return toGeocode(pt4326, self.geocode_type)

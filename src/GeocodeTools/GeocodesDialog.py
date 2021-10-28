@@ -18,6 +18,7 @@ class GeocodesDialog(QgsDockWidget):
 
         self.canvas = canvas
         self.marker = None
+        self.setWindowTitle('Geocode Tools')
 
         self.widget = uic.loadUi(os.path.join(os.path.dirname(__file__), 'ui/dialog.ui'))
         self.setWidget(self.widget)

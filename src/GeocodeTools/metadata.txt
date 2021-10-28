@@ -5,6 +5,7 @@ about=
 category=Plugins
 qgisMinimumVersion=3.0
 version=3.0
+hasProcessingProvider=yes
 
 author=Jakob Wilhelm
 email=codebardian@gmail.com
