@@ -26,7 +26,7 @@ jobs:
         id: pack_assets
         run: |
           zip -r qgis-geocodes${{ steps.get_version_number.outputs.VERSION }}.zip .
-        working-directory: src/GeocodeTools
+        working-directory: src
         
       - name: Create Release
         id: create_release
@@ -47,6 +47,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: src/GeocodeTools/qgis-geocodes${{ steps.get_version_number.outputs.VERSION }}.zip
+          asset_path: src/qgis-geocodes${{ steps.get_version_number.outputs.VERSION }}.zip
           asset_name: qgis-geocodes${{ steps.get_version_number.outputs.VERSION }}.zip
           asset_content_type: application/zip
