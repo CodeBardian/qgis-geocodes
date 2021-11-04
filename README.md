@@ -14,3 +14,9 @@ Plugin for [QGIS](https://github.com/qgis/QGIS) which provides tools for working
 - Plus Codes (Open Location Code)
 - OSM Shortlink 
 - Geohash
+
+## Installation
+
+1. Download the plugin `.zip` file from the [Release](https://github.com/CodeBardian/qgis-geocodes/releases) section 
+2. Head to the QGIS-PluginManager (`Plugins` -> `Manage and Install Plugins`) and select the `Install from ZIP` tab. 
+3. Select the filepath to the location of your download and click install.
