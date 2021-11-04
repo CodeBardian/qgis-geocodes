@@ -1,7 +1,7 @@
 from enum import Enum
 
-from GeocodeTools.openlocationcode import encode
-from GeocodeTools.osm_shortlink import short_osm
+from GeocodeTools.openlocationcode import encode, decode
+from GeocodeTools.osm_shortlink import short_osm, _decode
 
 
 class GeocodeType(Enum):
@@ -18,3 +18,19 @@ def toGeocode(pt, code_type):
         raise Exception('unknown geocode type')
 
     return code
+
+
+def toPosition(code):
+    try:
+        code_area = decode(code)
+        return code_area.latitudeCenter, code_area.longitudeCenter
+    except:
+        pass
+
+    try:
+        lat, lon, zoom = _decode(code)
+        return lon, lat
+    except:
+        pass
+
+    raise Exception('invalid geocode')

@@ -7,6 +7,7 @@ Plugin for [QGIS](https://github.com/qgis/QGIS) which provides tools for working
 - ___Capture Geocode___: Pick a map location and encode its latitude and longitude to a geocode 
 - ___Processing Scripts___
     - _Append Geocode to Point Layer_: Add attribute with geocoded location to each feature of a point layer 
+    - _Convert Table to Point Layer_: Create a map layer with point geometry from tables with a geocode column
 
 ## Supported Formats
 

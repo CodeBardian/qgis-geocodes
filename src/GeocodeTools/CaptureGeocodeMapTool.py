@@ -5,9 +5,7 @@ from qgis.gui import QgsMapToolEmitPoint
 from qgis.core import QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject, Qgis
 from qgis.utils import iface
 
-from GeocodeTools.openlocationcode import encode
-from GeocodeTools.osm_shortlink import short_osm
-from GeocodeTools.utils import GeocodeType, toGeocode
+from GeocodeTools.utils import toGeocode
 
 
 class CaptureGeocodeMapTool(QgsMapToolEmitPoint):

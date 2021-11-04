@@ -8,8 +8,7 @@ from qgis.PyQt.QtGui import QCursor, QIcon
 from qgis.core import QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsProject
 from qgis.gui import QgsVertexMarker, QgsDockWidget
 
-from .openlocationcode import decode
-from .osm_shortlink import _decode
+from .utils import toPosition
 
 
 class GeocodesDialog(QgsDockWidget):
@@ -36,7 +35,7 @@ class GeocodesDialog(QgsDockWidget):
             code = str(self.widget.textBox.text()).replace(" ", "")
             QApplication.setOverrideCursor(QCursor(Qt.WaitCursor))
 
-            lat, lon = self.calculatePosition(code)
+            lat, lon = toPosition(code)
 
             canvas_crs = self.canvas.mapSettings().destinationCrs()
             epsg4326 = QgsCoordinateReferenceSystem("EPSG:4326")
@@ -56,20 +55,6 @@ class GeocodesDialog(QgsDockWidget):
         finally:
             QApplication.restoreOverrideCursor()
 
-    def calculatePosition(self, code):
-        try:
-            code_area = decode(code)
-            return code_area.latitudeCenter, code_area.longitudeCenter
-        except:
-            pass
-
-        try:
-            lat, lon, zoom = _decode(code)
-            return lon, lat
-        except:
-            pass
-
-        raise Exception('invalid geocode')
 
     def removeMarker(self):
         if self.marker is not None:
