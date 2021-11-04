@@ -13,3 +13,4 @@ Plugin for [QGIS](https://github.com/qgis/QGIS) which provides tools for working
 
 - Plus Codes (Open Location Code)
 - OSM Shortlink 
+- Geohash

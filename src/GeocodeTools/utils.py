@@ -2,11 +2,13 @@ from enum import Enum
 
 from GeocodeTools.openlocationcode import encode, decode
 from GeocodeTools.osm_shortlink import short_osm, _decode
+from GeocodeTools import geohash
 
 
 class GeocodeType(Enum):
     OpenLocationCode = 'pluscode'
     OSMShortLink = 'shortlink'
+    Geohash = 'geohash'
 
 
 def toGeocode(pt, code_type):
@@ -14,6 +16,8 @@ def toGeocode(pt, code_type):
         code = encode(pt.y(), pt.x())
     elif code_type == GeocodeType.OSMShortLink:
         code = short_osm(pt.y(), pt.x())
+    elif code_type == GeocodeType.Geohash:
+        code = geohash.encode(pt.y(), pt.x())
     else:
         raise Exception('unknown geocode type')
 
@@ -29,6 +33,12 @@ def toPosition(code):
 
     try:
         lat, lon, zoom = _decode(code)
+        return lon, lat
+    except:
+        pass
+
+    try:
+        lat, lon = geohash.decode(code)
         return lon, lat
     except:
         pass
