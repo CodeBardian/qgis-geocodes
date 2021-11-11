@@ -10,12 +10,12 @@ hasProcessingProvider=yes
 author=Jakob Wilhelm
 email=codebardian@gmail.com
 
-icon=icons/desktop.svg
+icon=
 tags=openlocationcode,pluscode,osm short link
 
-homepage=https://github.com/codebardian/qgis-openlocationcode
-tracker=https://github.com/boundlessgeo/qgis-openlocationcode/issues
-repository=https://github.com/codebardian/qgis-openlocationcode
+homepage=https://github.com/codebardian/qgis-geocodes
+tracker=https://github.com/codebardian/qgis-geocodes/issues
+repository=https://github.com/codebardian/qgis-geocodes
 
 experimental=False
 deprecated=False

@@ -59,6 +59,7 @@ class GeocodeToolsPlugin:
             self.iface.removePluginMenu(self.menu, action)
             self.iface.removeToolBarIcon(action)
 
+        self.actions = []
         self.iface.removeDockWidget(self.dockWidget)
 
         QgsApplication.processingRegistry().removeProvider(self.provider)
