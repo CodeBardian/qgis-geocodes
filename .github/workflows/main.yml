@@ -9,15 +9,9 @@ on:
 jobs:
   build:
   
-    name: Build on ${{matrix.container }}
+    name: Build on qgis/qgis:latest
     runs-on: ubuntu-latest
-    
-    strategy:
-      fail-fast: false
-      matrix:
-        container: [' qgis/qgis:latest', 'qgis/qgis:release-3_16', 'qgis/qgis:release-3_10']
-        
-    container: ${{ matrix.container }}
+    container: qgis/qgis:latest
     
     steps:
     
