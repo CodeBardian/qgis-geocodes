@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+  
+jobs:
+  build:
+  
+    name: Build on ${{matrix.container }}
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        container: [' qgis/qgis:latest', 'qgis/qgis:release-3_16', 'qgis/qgis:release-3_10']
+        
+    container: ${{ matrix.container }}
+    
+    steps:
+    
+    - name: Checkout Project
+      uses: actions/checkout@v2.3.4
+        
+    - name: Install dependencies
+      run: |
+        pip install pytest pytest-cov pytest-qt
+        
+    - name: Unit Tests
+      env:
+        DISPLAY: :99
+      run: |
+        xvfb-run qgis_testrunner.sh tests.run_tests.run_all
+        
+  publish:
+    name: Upload artifact
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Checkout Project
+      uses: actions/checkout@v2.3.4
+
+    - name: QGIS plugin artifact 
+      uses: actions/upload-artifact@v2
+      with:
+        name: qgis-xplanung-plugin
+        path: ./src/GeocodeTools
