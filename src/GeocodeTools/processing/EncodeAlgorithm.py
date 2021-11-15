@@ -58,10 +58,10 @@ class EncodeAlgorithm(QgsProcessingAlgorithm):
         return EncodeAlgorithm()
 
     def name(self):
-        return 'Append Geocode to Point Layer'
+        return 'encodetofield'
 
     def displayName(self):
-        return 'Append Geocode to Point Layer'
+        return 'Append Geocode Field to Point Layer'
 
     def shortHelpString(self):
         return 'Encode location of each feature in a point layer and append result as attribute'

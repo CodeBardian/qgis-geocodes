@@ -71,7 +71,7 @@ class DecodeAlgorithm(QgsProcessingAlgorithm):
         return DecodeAlgorithm()
 
     def name(self):
-        return 'Convert Table to Point Layer'
+        return 'decodetopoints'
 
     def displayName(self):
         return 'Convert Table to Point Layer'
